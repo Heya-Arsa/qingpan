@@ -1,0 +1,17 @@
+# 构建产物
+build/
+
+# 图标中间产物
+*.iconset/
+
+# macOS
+.DS_Store
+._*
+
+# 编辑器
+.vscode/
+.idea/
+*.xcuserstate
+
+# 日志
+*.log

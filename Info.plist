@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>清盘</string>
+    <key>CFBundleDisplayName</key>
+    <string>清盘</string>
+    <key>CFBundleExecutable</key>
+    <string>DiskSweeper</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.xueyatao.diskseeper</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.1.0</string>
+    <key>CFBundleVersion</key>
+    <string>2</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>14.0</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.utilities</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSSupportsAutomaticTermination</key>
+    <false/>
+    <key>NSSupportsSuddenTermination</key>
+    <false/>
+    <key>NSDesktopFolderUsageDescription</key>
+    <string>清盘需要读取桌面文件夹，以便统计其中的大文件。</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>清盘需要读取文稿文件夹，以便统计其中的大文件。</string>
+    <key>NSDownloadsFolderUsageDescription</key>
+    <string>清盘需要读取下载文件夹，以便统计其中的大文件。</string>
+    <key>NSRemovableVolumesUsageDescription</key>
+    <string>清盘需要读取外接磁盘，以便统计其中的大文件。</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>清盘 · 本地文件体积分析</string>
+</dict>
+</plist>
