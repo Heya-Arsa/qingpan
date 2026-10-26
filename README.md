@@ -2,6 +2,10 @@
 
 **把 Mac 上的文件按体积排好队，勾选即可批量清理。**
 
+[![Release](https://img.shields.io/github/v/release/Heya-Arsa/qingpan?color=5B93FF)](https://github.com/Heya-Arsa/qingpan/releases/latest)
+[![Platform](https://img.shields.io/badge/macOS-12%2B-lightgrey)](https://github.com/Heya-Arsa/qingpan)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 一个原生 macOS 小工具：扫描本机文件 → 按体积从大到小排序 → 批量勾选 → 一键移到废纸篓（可撤销）。
 
 ![首屏](preview/hero.png)
@@ -29,7 +33,7 @@
 
 ### 方式一：下载 DMG
 
-1. 在 [Releases](../../releases) 下载 `DiskSweeper-1.1.0.dmg`。
+1. 下载 [DiskSweeper-1.1.0.dmg](https://github.com/Heya-Arsa/qingpan/releases/latest/download/DiskSweeper-1.1.0.dmg)（或到 [Releases](https://github.com/Heya-Arsa/qingpan/releases) 页面挑选版本）。
 2. 双击挂载，把 **清盘.app** 拖到旁边的 **Applications** 文件夹。
 3. 首次打开若提示「无法验证开发者」：右键 → 打开，或在「系统设置 → 隐私与安全性」里点「仍要打开」。
 
@@ -49,6 +53,12 @@ cp -R build/清盘.app ~/Applications/
 ```
 
 `build.sh` 会生成图标、编译并做 ad-hoc 签名；`make_dmg.sh` 会打出带「拖到 Applications」快捷方式的安装镜像。
+
+推送 `v*` 形式的标签会触发 GitHub Actions，自动构建并发布 DMG 到 Releases（见 `.github/workflows/release.yml`）：
+
+```bash
+git tag -a v1.1.0 -m "清盘 v1.1.0" && git push origin v1.1.0
+```
 
 ## 使用
 
