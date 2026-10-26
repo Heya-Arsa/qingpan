@@ -8,11 +8,17 @@ SDK="$(xcrun --show-sdk-path)"
 
 mkdir -p "$BUILD"
 
+# 选择 Python：优先用本机托管版本，CI / 其他机器回退到 python3
+if [ -x /Users/xueyatao/.workbuddy-ai/binaries/python/versions/3.13.12/bin/python3 ]; then
+  PYTHON=/Users/xueyatao/.workbuddy-ai/binaries/python/versions/3.13.12/bin/python3
+else
+  PYTHON=$(command -v python3 || echo /usr/bin/python3)
+fi
+
 # 1) 图标
 if [ ! -f "$BUILD/AppIcon.icns" ]; then
   echo "▸ 生成图标…"
-  /Users/xueyatao/.workbuddy-ai/binaries/python/versions/3.13.12/bin/python3 \
-    "$ROOT/tools/gen_icon.py" "$BUILD/AppIcon.iconset"
+  "$PYTHON" "$ROOT/tools/gen_icon.py" "$BUILD/AppIcon.iconset"
   iconutil -c icns "$BUILD/AppIcon.iconset" -o "$BUILD/AppIcon.icns"
 fi
 

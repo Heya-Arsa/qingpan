@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 环境信息
+        run: |
+          sw_vers
+          clang --version | head -1
+          python3 --version
+          which iconutil SetFile hdiutil gh
+
+      - name: 构建 App
+        run: |
+          chmod +x build.sh make_dmg.sh
+          ./build.sh
+
+      - name: 打包 DMG
+        run: ./make_dmg.sh
+
+      - name: 校验产物
+        run: |
+          ls -lh build/*.dmg
+          hdiutil verify build/*.dmg
+
+      - name: 发布 Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          NOTES="docs/RELEASE_NOTES_${TAG}.md"
+          if [ -f "$NOTES" ]; then
+            gh release create "$TAG" build/DiskSweeper-*.dmg \
+              --title "清盘 ${TAG}" --notes-file "$NOTES"
+          else
+            gh release create "$TAG" build/DiskSweeper-*.dmg \
+              --title "清盘 ${TAG}" --generate-notes
+          fi
