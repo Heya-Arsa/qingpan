@@ -60,6 +60,12 @@ cp -R build/清盘.app ~/Applications/
 git tag -a v1.1.0 -m "清盘 v1.1.0" && git push origin v1.1.0
 ```
 
+推送 `v*` 形式的标签会触发 GitHub Actions，自动构建并发布 DMG 到 Releases（见 `.github/workflows/release.yml`）：
+
+```bash
+git tag -a v1.1.0 -m "清盘 v1.1.0" && git push origin v1.1.0
+```
+
 ## 使用
 
 1. 打开 App，点中间白色的 **扫描 Mac**。
